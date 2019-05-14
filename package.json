@@ -1,0 +1,139 @@
+{
+  "name": "@ryaninvents/new",
+  "version": "0.0.0-semantically-released",
+  "description": "Yeoman generators, set up the way I like",
+  "keywords": [
+    "app",
+    "generator",
+    "yeoman",
+    "yo"
+  ],
+  "homepage": "https://github.com/ryaninvents/generator-new#readme",
+  "bugs": {
+    "url": "https://github.com/ryaninvents/generator-new/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryaninvents/generator-new.git"
+  },
+  "license": "MIT",
+  "author": "Ryan Kennedy <ryaninvents@noreply.users.github.com>",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "npm-run-all build:pkg",
+    "build:pkg": "pack build",
+    "lint": "eslint 'src/**/*.js'",
+    "semantic-release": "semantic-release",
+    "pretest": "npm run -s lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/**",
+          "*.test.js"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "func-names": "off"
+    }
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "sort-package-json": "^1.22.1",
+    "yeoman-generator": "^4.0.0",
+    "yoxable": "^1.1.0"
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.3.1",
+    "@pika/plugin-build-node": "^0.3.14",
+    "@pika/plugin-copy-assets": "^0.3.16",
+    "@pika/plugin-standard-pkg": "^0.3.14",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/git": "^7.0.8",
+    "@semantic-release/github": "^5.2.10",
+    "@semantic-release/npm": "^5.1.4",
+    "@semantic-release/release-notes-generator": "^7.1.4",
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-xo": "^0.25.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "lint-staged": "^8.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.15.2",
+    "semantic-release": "^15.13.3"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node",
+        {
+          "minNodeVersion": "8"
+        }
+      ],
+      [
+        "@pika/plugin-copy-assets",
+        {
+          "files": [
+            "bin/"
+          ]
+        }
+      ]
+    ]
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  }
+}
