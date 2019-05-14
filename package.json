@@ -19,6 +19,7 @@
   "license": "MIT",
   "author": "Ryan Kennedy <ryaninvents@noreply.users.github.com>",
   "main": "src/index.js",
+  "bin": "bin/new.js",
   "scripts": {
     "build": "npm-run-all build:pkg",
     "build:pkg": "pack build",
