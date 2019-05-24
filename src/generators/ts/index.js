@@ -8,5 +8,9 @@ export default class Ts extends Generator {
     this.composeWith({ Generator: TsDeps, path: `${__dirname}/index.js` });
   }
 }
+Object.assign(Ts, {
+  Config: TsConfig,
+  Deps: TsDeps,
+});
 
 export const allTs = [Ts, TsConfig, TsDeps];
