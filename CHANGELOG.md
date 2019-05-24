@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/ryaninvents/generator-new/compare/v1.1.0...v1.2.0) (2019-05-24)
+
+
+### Features
+
+* enable installation of Semantic Release ([0db04f4](https://github.com/ryaninvents/generator-new/commit/0db04f4))
+* use Yeoman standard `:` delimiter ([d114d74](https://github.com/ryaninvents/generator-new/commit/d114d74))
+
 # [1.1.0](https://github.com/ryaninvents/generator-new/compare/v1.0.2...v1.1.0) (2019-05-24)
 
 
