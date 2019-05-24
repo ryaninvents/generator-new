@@ -1,9 +1,9 @@
 import yoxable from 'yoxable';
 import Project from './generators/project';
 import SortPkg from './generators/sort-pkg';
-import { allPack } from './generators/pack';
+import Pack, { allPack } from './generators/pack';
 
-export { Project, SortPkg };
+export { Project, SortPkg, Pack };
 
 export default yoxable({
   pkg: require('../package.json'),

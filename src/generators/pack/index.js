@@ -3,6 +3,7 @@ import Generator from 'yeoman-generator';
 import PackStandard from './standard';
 import PackScript from './script';
 import PackNode from './node';
+import PackAssets from './assets';
 
 export default class Pack extends Generator {
   constructor(...args) {
@@ -44,10 +45,11 @@ export default class Pack extends Generator {
   }
 }
 
-export const allPack = [Pack, PackStandard, PackScript, PackNode];
+export const allPack = [Pack, PackStandard, PackScript, PackNode, PackAssets];
 
 Object.assign(Pack, {
   Standard: PackStandard,
   Script: PackScript,
   Node: PackNode,
+  Assets: PackAssets,
 });
