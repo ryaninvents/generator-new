@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ryaninvents/generator-new/compare/v1.2.0...v1.3.0) (2019-05-24)
+
+
+### Features
+
+* keep package up to date if installed globally ([8c4a313](https://github.com/ryaninvents/generator-new/commit/8c4a313))
+
 # [1.2.0](https://github.com/ryaninvents/generator-new/compare/v1.1.0...v1.2.0) (2019-05-24)
 
 
