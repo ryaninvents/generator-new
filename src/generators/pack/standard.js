@@ -47,4 +47,4 @@ export default class PackStandard extends Generator {
     });
   }
 }
-PackStandard.key = 'pack.standard';
+PackStandard.key = 'pack:standard';

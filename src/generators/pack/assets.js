@@ -43,4 +43,4 @@ export default class PackAssets extends Generator {
     await this.npmInstall();
   }
 }
-PackAssets.key = 'pack.assets';
+PackAssets.key = 'pack:assets';

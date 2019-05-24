@@ -13,4 +13,4 @@ export default class TsConfig extends Generator {
     });
   }
 }
-TsConfig.key = 'ts.config';
+TsConfig.key = 'ts:config';

@@ -11,4 +11,4 @@ export default class TsDeps extends Generator {
     await this.npmInstall();
   }
 }
-TsDeps.key = 'ts.deps';
+TsDeps.key = 'ts:deps';

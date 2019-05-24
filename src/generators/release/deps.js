@@ -23,4 +23,4 @@ export default class ReleaseDeps extends Generator {
     await this.npmInstall();
   }
 }
-ReleaseDeps.key = 'release.deps';
+ReleaseDeps.key = 'release:deps';

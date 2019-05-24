@@ -15,4 +15,4 @@ export default class PackScript extends Generator {
     await this.npmInstall();
   }
 }
-PackScript.key = 'pack.script';
+PackScript.key = 'pack:script';

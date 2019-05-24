@@ -9,4 +9,4 @@ export default class ReleaseSimpleConfig extends Generator {
     }));
   }
 }
-ReleaseSimpleConfig.key = 'release.simple-config';
+ReleaseSimpleConfig.key = 'release:simple-config';

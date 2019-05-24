@@ -49,4 +49,4 @@ export default class PackNode extends Generator {
     await this.npmInstall();
   }
 }
-PackNode.key = 'pack.node';
+PackNode.key = 'pack:node';
