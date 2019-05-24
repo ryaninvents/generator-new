@@ -69,9 +69,9 @@
   },
   "devDependencies": {
     "@pika/pack": "^0.3.1",
-    "@pika/plugin-build-node": "^0.3.14",
+    "@pika/plugin-build-node": "^0.4.0",
     "@pika/plugin-copy-assets": "^0.3.16",
-    "@pika/plugin-standard-pkg": "^0.3.14",
+    "@pika/plugin-standard-pkg": "^0.4.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/commit-analyzer": "^6.1.0",
     "@semantic-release/git": "^7.0.8",
