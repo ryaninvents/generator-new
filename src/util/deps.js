@@ -23,6 +23,7 @@ const STABLE_SRC = {
   '@pika/types': PIKA_BUILDERS_VERSION,
   'npm-run-all': '^4.1.5',
   'cross-env': '^5.2.0',
+  typescript: '^3.4.5',
 };
 
 export const stable = createVersions(STABLE_SRC);
