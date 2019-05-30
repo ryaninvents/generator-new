@@ -9,6 +9,7 @@ function createVersions(spec) {
 }
 
 const PIKA_BUILDERS_VERSION = '^0.4.0';
+const REACT_VERSION = '^16.8.6';
 
 const STABLE_SRC = {
   '@pika/pack': '^0.3.7',
@@ -21,15 +22,28 @@ const STABLE_SRC = {
   '@pika/plugin-standard-pkg': PIKA_BUILDERS_VERSION,
   '@pika/plugin-ts-standard-pkg': PIKA_BUILDERS_VERSION,
   '@pika/types': PIKA_BUILDERS_VERSION,
-  '@semantic-release/git': '^7.0.8',
-  '@semantic-release/npm': '^5.1.7',
-  '@semantic-release/commit-analyzer': '^6.1.0',
-  '@semantic-release/release-notes-generator': '^7.1.4',
   '@semantic-release/changelog': '^3.0.2',
+  '@semantic-release/commit-analyzer': '^6.1.0',
+  '@semantic-release/git': '^7.0.8',
   '@semantic-release/github': '^5.2.10',
-  'npm-run-all': '^4.1.5',
+  '@semantic-release/npm': '^5.1.7',
+  '@semantic-release/release-notes-generator': '^7.1.4',
   'cross-env': '^5.2.0',
+  'eslint-config-prettier': '^4.3.0',
+  'eslint-config-react-app': '^4.0.1',
+  'eslint-config-xo': '^0.26.0',
+  'eslint-plugin-prettier': '^3.1.0',
+  'lint-staged': '^8.1.7',
+  'npm-run-all': '^4.1.5',
+  'react-dom': REACT_VERSION,
+  'react-scripts': '^3.0.1',
   'semantic-release': '^15.13.12',
+  'sort-package-json': '^1.22.1',
+  eslint: '5.16.0',
+  husky: '^2.3.0',
+  jest: '^24.8.0',
+  prettier: '^1.17.1',
+  react: REACT_VERSION,
   typescript: '^3.4.5',
 };
 

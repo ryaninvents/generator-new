@@ -29,6 +29,23 @@ export const addDependencies = createKeyUpdater('dependencies');
 export const addDevDependencies = createKeyUpdater('devDependencies');
 export const addScripts = createKeyUpdater('scripts');
 
+export async function addHuskyHook(spec, ...rest) {
+  return updatePackageJson.call(
+    this,
+    (pkg) => ({
+      ...pkg,
+      husky: {
+        ...(pkg.husky || null),
+        hooks: {
+          ...(pkg.husky ? pkg.husky.hooks : null),
+          ...spec,
+        },
+      },
+    }),
+    ...rest
+  );
+}
+
 const PIKA_PACK_KEY = '@pika/pack';
 
 export async function updatePikaPipeline(updater, path = 'package.json') {
