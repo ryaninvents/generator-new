@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ryaninvents/generator-new/compare/v1.3.0...v1.4.0) (2019-05-30)
+
+
+### Features
+
+* add code style generators ([64ef101](https://github.com/ryaninvents/generator-new/commit/64ef101))
+
 # [1.3.0](https://github.com/ryaninvents/generator-new/compare/v1.2.0...v1.3.0) (2019-05-24)
 
 
