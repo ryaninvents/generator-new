@@ -40,6 +40,7 @@ export default class Project extends Generator {
         .replace(/[^A-Za-z0-9-_$.]+/g, '_');
       this.destinationRoot(resolve(oldRoot, folderName));
     }
+
     await updatePackageJson.call(this, (pkg) => ({
       version: '0.0.0-semantically-released',
       ...pkg,

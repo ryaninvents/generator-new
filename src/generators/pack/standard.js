@@ -21,6 +21,7 @@ export default class PackStandard extends Generator {
     if (this.options.typescript) {
       packageName = '@pika/plugin-ts-standard-pkg';
     }
+
     await addDevDependencies.call(this, stable.pick(packageName));
     await updatePikaPipeline.call(this, (prevSteps) => {
       const newStep = [
@@ -42,6 +43,7 @@ export default class PackStandard extends Generator {
           ...prevSteps.slice(existingStepIndex + 1),
         ];
       }
+
       // Assume this builder comes first, since it's the transpiler.
       return [newStep, ...prevSteps];
     });

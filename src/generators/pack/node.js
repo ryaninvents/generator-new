@@ -31,12 +31,14 @@ export default class PackNode extends Generator {
           ...prevSteps.slice(existingStepIndex + 1),
         ];
       }
+
       const standardStepIndex = prevSteps.findIndex(
         builderNameEndsWith('standard-pkg')
       );
       if (standardStepIndex === -1) {
         return [...prevSteps, newStep];
       }
+
       return [
         ...prevSteps.slice(0, standardStepIndex),
         newStep,
