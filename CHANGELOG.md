@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/ryaninvents/generator-new/compare/v1.4.0...v1.5.0) (2019-06-09)
+
+
+### Features
+
+* add package description by default ([2507416](https://github.com/ryaninvents/generator-new/commit/2507416))
+* add README and Babel generators ([eae03b1](https://github.com/ryaninvents/generator-new/commit/eae03b1))
+* options menu for code-style ([b3d7933](https://github.com/ryaninvents/generator-new/commit/b3d7933))
+
 # [1.4.0](https://github.com/ryaninvents/generator-new/compare/v1.3.0...v1.4.0) (2019-05-30)
 
 
