@@ -46,6 +46,52 @@ export async function addHuskyHook(spec, ...rest) {
   );
 }
 
+export async function updateBabelConfig(transformer, ...rest) {
+  return updatePackageJson.call(
+    this,
+    ({ babel = {}, ...pkg }) => ({
+      ...pkg,
+      babel: transformer(babel),
+    }),
+    ...rest
+  );
+}
+
+export function createBabelArrayItemUpdater(key) {
+  return async function updateBabelValue(spec, ...rest) {
+    let writtenSpec = spec;
+    if (typeof spec === 'string') writtenSpec = [spec];
+    return updateBabelConfig.call(
+      this,
+      ({ [key]: list, ...restBabelConfig }) => {
+        const matchingItemIndex = list.findIndex(
+          (element) =>
+            element === writtenSpec[0] || element[0] === writtenSpec[0]
+        );
+        if (matchingItemIndex === -1) {
+          return {
+            ...restBabelConfig,
+            [key]: [...list, writtenSpec],
+          };
+        }
+
+        return {
+          ...restBabelConfig,
+          [key]: [
+            ...list.slice(0, matchingItemIndex),
+            writtenSpec,
+            ...list.slice(matchingItemIndex + 1),
+          ],
+        };
+      },
+      ...rest
+    );
+  };
+}
+
+export const configureBabelPreset = createBabelArrayItemUpdater('presets');
+export const configureBabelPlugin = createBabelArrayItemUpdater('plugins');
+
 const PIKA_PACK_KEY = '@pika/pack';
 
 export async function updatePikaPipeline(updater, path = 'package.json') {

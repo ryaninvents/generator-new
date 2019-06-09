@@ -12,6 +12,8 @@ const PIKA_BUILDERS_VERSION = '^0.4.0';
 const REACT_VERSION = '^16.8.6';
 
 const STABLE_SRC = {
+  '@babel/node': '^7.4.5',
+  '@babel/preset-env': '^7.4.5',
   '@pika/pack': '^0.3.7',
   '@pika/plugin-build-node': PIKA_BUILDERS_VERSION,
   '@pika/plugin-build-types': PIKA_BUILDERS_VERSION,
@@ -29,6 +31,7 @@ const STABLE_SRC = {
   '@semantic-release/npm': '^5.1.7',
   '@semantic-release/release-notes-generator': '^7.1.4',
   'babel-eslint': '^9.0.0',
+  'babel-preset-react-app': '^9.0.0',
   'cross-env': '^5.2.0',
   'eslint-config-prettier': '^4.3.0',
   'eslint-config-react-app': '^4.0.1',

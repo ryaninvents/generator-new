@@ -6,9 +6,20 @@ import Pack, { allPack } from './generators/pack';
 import TypeScript, { allTs } from './generators/ts';
 import Release, { allRelease } from './generators/release';
 import CodeStyle, { allCodeStyle } from './generators/code-style';
+import Readme from './generators/readme';
+import Babel, { allBabel } from './generators/babel';
 import checkForUpdates from './update-check';
 
-export { Project, SortPkg, Pack, TypeScript, Release, CodeStyle };
+export {
+  Project,
+  SortPkg,
+  Pack,
+  TypeScript,
+  Release,
+  CodeStyle,
+  Babel,
+  Readme,
+};
 
 const runGenerators = yoxable({
   pkg: require('../package.json'),
@@ -16,10 +27,12 @@ const runGenerators = yoxable({
     Project,
     SortPkg,
     Hooks,
+    Readme,
     ...allPack,
     ...allTs,
     ...allRelease,
     ...allCodeStyle,
+    ...allBabel,
   ],
 });
 

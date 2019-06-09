@@ -81,7 +81,10 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "lodash": "^4.17.11",
+    "mdast-util-definitions": "^1.2.4",
+    "remark": "^10.0.1",
     "sort-package-json": "^1.22.1",
+    "unist-util-visit": "^1.4.1",
     "update-notifier": "^3.0.0",
     "yeoman-generator": "^4.0.0",
     "yoxable": "^1.2.0"
@@ -131,7 +134,8 @@
         "@pika/plugin-copy-assets",
         {
           "files": [
-            "bin/"
+            "bin/",
+            "assets/"
           ]
         }
       ]
