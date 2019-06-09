@@ -1,4 +1,5 @@
 import Generator from 'yeoman-generator';
+import chalk from 'chalk';
 
 import Eslint from './eslint';
 import Prettier from './prettier';
@@ -43,6 +44,7 @@ export default class CodeStyle extends Generator {
 
   async configuring() {
     if (this.options.interactive) {
+      this.log(chalk.bold.underline('\nCode style options'));
       const { ruleset } = await this.prompt([
         {
           name: 'ruleset',

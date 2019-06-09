@@ -1,4 +1,5 @@
 import Generator from 'yeoman-generator';
+import chalk from 'chalk';
 import { resolve } from 'path';
 import { updatePackageJson } from '../util/updatePkg';
 
@@ -6,6 +7,10 @@ export default class Project extends Generator {
   constructor(...args) {
     super(...args);
     this.argument('projectName', {
+      type: String,
+      required: false,
+    });
+    this.option('description', {
       type: String,
       required: false,
     });
@@ -18,15 +23,26 @@ export default class Project extends Generator {
   }
 
   async prompting() {
-    const { projectName } = await this.prompt([
+    this.log(chalk.bold.underline('\nProject options'));
+    const { projectName, description } = await this.prompt([
       {
         name: 'projectName',
         when: !this.options.projectName,
         message: 'Package name?',
       },
+      {
+        name: 'description',
+        when: !this.options.description,
+        message: 'Package description?',
+      },
     ]);
+
     if (!this.options.projectName) {
       this.options.projectName = projectName;
+    }
+
+    if (!this.options.description) {
+      this.options.description = description;
     }
   }
 
@@ -45,6 +61,7 @@ export default class Project extends Generator {
       version: '0.0.0-semantically-released',
       ...pkg,
       name: this.options.projectName,
+      description: this.options.description,
     }));
   }
 
