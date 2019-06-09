@@ -72,8 +72,10 @@
       "prettier"
     ],
     "rules": {
-      "prettier/prettier": "error",
-      "func-names": "off"
+      "func-names": "off",
+      "camelcase": "off",
+      "valid-jsdoc": "off",
+      "prettier/prettier": "error"
     }
   },
   "dependencies": {

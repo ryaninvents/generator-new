@@ -4,6 +4,7 @@ import { stable } from '../../util/deps';
 import { extendEslint } from '../../util/eslint';
 import Prettier from './prettier';
 import Eslint from './eslint';
+import { xo as xoConfig } from './eslint-config';
 
 export default class Xo extends Generator {
   initializing() {
@@ -21,6 +22,7 @@ export default class Xo extends Generator {
           ...(eslint || null),
           extends: extendEslint(eslint.extends, 'xo'),
           rules: {
+            ...xoConfig.rules,
             ...((eslint || {}).rules || null),
           },
         },

@@ -12,7 +12,18 @@ export default class ReactApp extends Generator {
   }
 
   async writing() {
-    await addDevDependencies.call(this, stable.pick('eslint-config-react-app'));
+    await addDevDependencies.call(
+      this,
+      stable.pick(
+        'eslint-config-react-app',
+        'babel-eslint',
+        'eslint-plugin-flowtype',
+        'eslint-plugin-import',
+        'eslint-plugin-jsx-a11y',
+        'eslint-plugin-react',
+        'eslint-plugin-react-hooks'
+      )
+    );
     await updatePackageJson.call(
       this,
       ({ eslintConfig: eslint = {}, ...pkg }) => ({
