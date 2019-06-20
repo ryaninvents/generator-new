@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/ryaninvents/generator-new/compare/v1.6.0...v1.7.0) (2019-06-20)
+
+
+### Features
+
+* implement Pika Pack main generator ([18db865](https://github.com/ryaninvents/generator-new/commit/18db865))
+
 # [1.6.0](https://github.com/ryaninvents/generator-new/compare/v1.5.1...v1.6.0) (2019-06-20)
 
 
