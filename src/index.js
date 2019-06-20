@@ -1,4 +1,5 @@
 import yoxable from 'yoxable';
+import './temp-inquirer-fix';
 import Project from './generators/project';
 import SortPkg from './generators/sort-pkg';
 import Hooks from './generators/hooks';
