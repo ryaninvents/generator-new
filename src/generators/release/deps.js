@@ -16,7 +16,17 @@ export default class ReleaseDeps extends Generator {
 
   async writing() {
     const channel = this.options.channel === 'beta' ? beta : stable;
-    await addDevDependencies.call(this, channel.pick('semantic-release'));
+    await addDevDependencies.call(
+      this,
+      channel.pick(
+        'semantic-release',
+        '@semantic-release/git',
+        '@semantic-release/github',
+        '@semantic-release/npm',
+        '@semantic-release/commit-analyzer',
+        '@semantic-release/changelog'
+      )
+    );
   }
 
   async installing() {

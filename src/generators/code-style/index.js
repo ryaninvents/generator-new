@@ -6,6 +6,7 @@ import Prettier from './prettier';
 import EslintPrettier from './eslint-prettier';
 import Xo from './xo';
 import ReactApp from './react-app';
+import PrettierHook from './prettier-hook';
 
 const RULESET_CHOICES = [
   {
@@ -74,6 +75,12 @@ export default class CodeStyle extends Generator {
           path: `${__dirname}/index.js`,
         });
         break;
+      case 'prettier':
+        this.composeWith({
+          Generator: PrettierHook,
+          path: `${__dirname}/index.js`,
+        });
+        break;
       default:
         break;
     }
@@ -88,6 +95,14 @@ export const allCodeStyle = [
   EslintPrettier,
   ReactApp,
   Xo,
+  PrettierHook,
 ];
 
-Object.assign(CodeStyle, { Eslint, Prettier, EslintPrettier, ReactApp, Xo });
+Object.assign(CodeStyle, {
+  Eslint,
+  Prettier,
+  EslintPrettier,
+  ReactApp,
+  Xo,
+  PrettierHook,
+});

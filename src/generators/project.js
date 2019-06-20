@@ -5,6 +5,9 @@ import { updatePackageJson } from '../util/updatePkg';
 import Readme from './readme';
 import CodeStyle from './code-style';
 import Babel from './babel';
+import Release from './release';
+import Ts from './ts';
+import Pack from './pack';
 
 const PROJECT_TYPES = [
   {
@@ -49,11 +52,21 @@ export default class Project extends Generator {
       required: false,
       description: 'Project type (cli, pkg, react-component)',
     });
+    this.option('language', {
+      type: String,
+      required: false,
+      description: 'Language (js, ts)',
+    });
   }
 
   async prompting() {
     this.log(chalk.bold.underline('\nProject options'));
-    const { projectName, description } = await this.prompt([
+    const {
+      projectName,
+      description,
+      projectType,
+      language,
+    } = await this.prompt([
       {
         name: 'projectName',
         when: !this.options.projectName,
@@ -63,6 +76,23 @@ export default class Project extends Generator {
         name: 'description',
         when: !this.options.description,
         message: 'Package description?',
+      },
+      {
+        name: 'projectType',
+        message: 'What type of project?',
+        type: 'list',
+        choices: PROJECT_TYPES,
+        when: this.options.interactive !== false && !this.options.projectType,
+      },
+      {
+        name: 'language',
+        message: 'Language?',
+        type: 'list',
+        when: this.options.interactive !== false && !this.options.language,
+        choices: [
+          { name: 'JavaScript', value: 'js' },
+          { name: 'TypeScript', value: 'ts' },
+        ],
       },
     ]);
 
@@ -74,35 +104,68 @@ export default class Project extends Generator {
       this.options.description = description;
     }
 
-    if (this.options.interactive !== false && !this.options.projectType) {
-      const { projectType } = await this.prompt([
-        {
-          name: 'projectType',
-          message: 'What type of project?',
-          type: 'list',
-          choices: PROJECT_TYPES,
-        },
-      ]);
+    if (!this.options.projectType) {
       this.options.projectType = projectType;
+    }
+
+    if (!this.options.language) {
+      this.options.language = language;
     }
   }
 
   configuring() {
     this.composeWith({ Generator: Readme, path: `${__dirname}/index.js` });
+    this.composeWith(
+      { Generator: Release, path: `${__dirname}/index.js` },
+      { channel: 'beta' }
+    );
+
     const { interactive } = this.options;
     let lintingOpts = { interactive };
     let babelOpts = null;
 
-    switch (this.options.projectType) {
-      case 'react-component':
-        lintingOpts = { ruleset: 'react-app' };
-        babelOpts = { config: 'react' };
+    switch (this.options.language) {
+      case 'js':
+        switch (this.options.projectType) {
+          case 'react-component':
+            lintingOpts = { ruleset: 'react-app' };
+            babelOpts = { config: 'react' };
+            this.composeWith(
+              { Generator: Pack, path: `${__dirname}/index.js` },
+              { type: 'js' }
+            );
+            break;
+          case 'cli':
+            this.composeWith(
+              { Generator: Pack, path: `${__dirname}/index.js` },
+              { type: 'exe' }
+            );
+            lintingOpts = { ruleset: 'xo' };
+            babelOpts = { config: 'node' };
+            break;
+          case 'pkg':
+            this.composeWith(
+              { Generator: Pack, path: `${__dirname}/index.js` },
+              { type: 'js' }
+            );
+            lintingOpts = { ruleset: 'xo' };
+            babelOpts = { config: 'node' };
+            break;
+          default:
+            break;
+        }
+
         break;
-      case 'cli':
-      case 'pkg':
-        lintingOpts = { ruleset: 'xo' };
-        babelOpts = { config: 'node' };
+
+      case 'ts':
+        this.composeWith({ Generator: Ts, path: `${__dirname}/index.js` });
+        this.composeWith(
+          { Generator: Pack, path: `${__dirname}/index.js` },
+          { type: 'js' }
+        );
+        lintingOpts = { ruleset: 'prettier' };
         break;
+
       default:
         break;
     }

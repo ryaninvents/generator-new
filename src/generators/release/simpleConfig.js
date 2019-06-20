@@ -5,7 +5,14 @@ export default class ReleaseSimpleConfig extends Generator {
   async writing() {
     await updatePackageJson.call(this, (pkg) => ({
       ...pkg,
-      release: {},
+      release: {
+        plugins: [
+          '@semantic-release/npm',
+          {
+            pkgRoot: './pkg',
+          },
+        ],
+      },
     }));
   }
 }
