@@ -43,6 +43,48 @@ export default class Pack extends Generator {
     ]);
     this.options.type = packType;
   }
+
+  async writing() {
+    this.composeWith({ Generator: PackScript, path: `${__dirname}/index.js` });
+    switch (this.options.type) {
+      case 'js':
+        this.composeWith({
+          Generator: PackStandard,
+          path: `${__dirname}/index.js`,
+        });
+        this.composeWith({
+          Generator: PackNode,
+          path: `${__dirname}/index.js`,
+        });
+        break;
+      case 'ts':
+        this.composeWith(
+          { Generator: PackStandard, path: `${__dirname}/index.js` },
+          { typescript: true }
+        );
+        this.composeWith({
+          Generator: PackNode,
+          path: `${__dirname}/index.js`,
+        });
+        break;
+      case 'exe':
+        this.composeWith({
+          Generator: PackStandard,
+          path: `${__dirname}/index.js`,
+        });
+        this.composeWith({
+          Generator: PackNode,
+          path: `${__dirname}/index.js`,
+        });
+        this.composeWith({
+          Generator: PackAssets,
+          path: `${__dirname}/index.js`,
+        });
+        break;
+      default:
+        break;
+    }
+  }
 }
 
 export const allPack = [Pack, PackStandard, PackScript, PackNode, PackAssets];
