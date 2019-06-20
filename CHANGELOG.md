@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/ryaninvents/generator-new/compare/v1.5.0...v1.5.1) (2019-06-20)
+
+
+### Bug Fixes
+
+* temp workaround for Inquirer bug ([f9e6eea](https://github.com/ryaninvents/generator-new/commit/f9e6eea))
+
 # [1.5.0](https://github.com/ryaninvents/generator-new/compare/v1.4.0...v1.5.0) (2019-06-09)
 
 
