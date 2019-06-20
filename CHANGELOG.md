@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/ryaninvents/generator-new/compare/v1.7.0...v1.7.1) (2019-06-20)
+
+
+### Bug Fixes
+
+* add missing package ([68fb867](https://github.com/ryaninvents/generator-new/commit/68fb867))
+
 # [1.7.0](https://github.com/ryaninvents/generator-new/compare/v1.6.0...v1.7.0) (2019-06-20)
 
 
