@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/ryaninvents/generator-new/compare/v1.5.1...v1.6.0) (2019-06-20)
+
+
+### Features
+
+* start working on TypeScript options ([bb3c085](https://github.com/ryaninvents/generator-new/commit/bb3c085))
+
 ## [1.5.1](https://github.com/ryaninvents/generator-new/compare/v1.5.0...v1.5.1) (2019-06-20)
 
 
